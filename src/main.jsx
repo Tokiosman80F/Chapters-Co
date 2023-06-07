@@ -18,11 +18,14 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "books",
+        path: "/books",
         element: <Books />,
+        loader: () => {
+          return fetch(`https://api.itbook.store/1.0/new`);
+        },
       },
       {
-        path: "about",
+        path: "/about",
         element: <About />,
       },
     ],
