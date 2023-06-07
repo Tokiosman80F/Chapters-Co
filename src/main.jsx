@@ -5,7 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
-import ErrorPage from "./ErrorPage.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
 import Books from "./components/Books.jsx";
 import BookDetail from "./components/BookDetail.jsx";
 import LoadingSpiner from "./components/LoadingSpiner.jsx";
@@ -14,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -42,12 +43,6 @@ const router = createBrowserRouter([
         element: <About />,
       },
     ],
-  },
-
-  // error page
-  {
-    path: "/",
-    element: <ErrorPage></ErrorPage>,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
