@@ -8,6 +8,7 @@ import About from "./components/About.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 import Books from "./components/Books.jsx";
 import BookDetail from "./components/BookDetail.jsx";
+import LoadingSpiner from "./components/LoadingSpiner.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         loader: ({ params }) => {
           return fetch(`https://api.itbook.store/1.0/books/${params.id}`);
         },
+      },
+      {
+        path: "loadspinner",
+        element: <LoadingSpiner />,
       },
       {
         path: "/about",

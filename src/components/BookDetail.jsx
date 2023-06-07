@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
+import LoadingSpiner from "./LoadingSpiner";
 
 const BookDetail = () => {
   const bookData = useLoaderData();
+  const navigation = useNavigation();
+  // console.log(navigation.state);
+  if (navigation.state === "loading") return <LoadingSpiner></LoadingSpiner>;
   const [readMore, setReadMore] = useState(true);
   console.log(bookData);
   const { image, title, desc, authors, publisher, year, rating, url, price } =

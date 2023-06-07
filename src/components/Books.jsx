@@ -1,7 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import Book from "./Book";
+import LoadingSpiner from "./LoadingSpiner";
 
 const Books = () => {
+  const navigation = useNavigation();
+  // console.log(navigation.state);
+  if (navigation.state === "loading") return <LoadingSpiner></LoadingSpiner>;
   // useloaderData in a hook
   const { books } = useLoaderData();
   console.log(books);
